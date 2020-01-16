@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "webpack -p  --config webpack.prod.js",
     "dev": "webpack-dev-server --watch  --progress --color --config webpack.dev.js --open",
