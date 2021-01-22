@@ -9,7 +9,7 @@ module.exports = merge(common, {
     mode: 'production',
     output: {
         filename: '[name]-[chunkhash].js',
-        publicPath: './'
+        publicPath: '/'
     },
     resolve: {
         alias: {

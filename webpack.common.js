@@ -6,6 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
     title
 } = require('./config.json');
+
+const path = require('path') // 需新增
+const CopyPlugin = require('copy-webpack-plugin') // 需新增
+
 const config = {
 
     entry: {
@@ -22,8 +26,10 @@ const config = {
     },
     output: {
         path: __dirname + '/dist/',
+        publicPath: '/',   // 加上這個可以重新整理頁面不會壞掉
         filename: '[name].js',
     },
+
     module: {
         rules: [{
                 test: /\.jsx?$/,
@@ -61,6 +67,9 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [{ from: 'src/public', to: path.resolve(__dirname, "dist/"), }]
+        }),            
         new HtmlWebpackPlugin({
             title: title,
             template: 'src/public/index.html',
