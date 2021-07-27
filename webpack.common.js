@@ -15,7 +15,7 @@ const config = {
     entry: {
 
         vendors: [ 'react', 'react-dom'],
-        app: ['babel-polyfill',__dirname + '/src/app/index.jsx'],
+        app: [__dirname + '/src/app/index.jsx'],
   
     },
     resolve: {
