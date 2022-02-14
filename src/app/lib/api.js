@@ -1,77 +1,65 @@
-import axios from 'axios'
+import axios from "axios"
 
-import {
-	apiurl,
-	cors
-} from 'Config'
+import { apiurl, cors } from "Config"
 
-
-export default function ({
-	cmd,
-	method = 'GET',
-	type = 'json',
-	data = {},
-	header = {},
-	fileList = [],
-}) {
+export default function ({ cmd, thirdpartyurl, method = "GET", type = "json", data = {}, header = {}, fileList = [] }) {
 	method = method.toUpperCase()
 	type = type.toLowerCase()
-	let url = `${apiurl}/${cmd}`
+	let url = thirdpartyurl ? thirdpartyurl : `${apiurl}/${cmd}`
 	let option = {
 		method,
 		headers: {
-			'Content-Type': 'application/json',
+			"Content-Type": "application/json",
 			...header,
-		}
+		},
 	}
 
 	if (fileList.length) {
 		let formData = new FormData()
-		option.headers['Content-Type'] = 'multipart/form-data'
+		option.headers["Content-Type"] = "multipart/form-data"
 		let filelist = [...fileList]
 		filelist.forEach((file) => {
-			formData.append('files', file)
+			formData.append("files", file)
 		})
 		data = formData
 	}
 	switch (method) {
-		case 'POST':
-		case 'PUT':
-		case 'DELETE':
+		case "POST":
+		case "PUT":
+		case "DELETE":
 			option.data = data
-			break;
-		case 'GET':
+			break
+		case "GET":
 			option.params = data
-			break;
+			break
 	}
 	return axios({
 		method,
 		url,
 		...option,
 		withCredentials: !!cors,
-	}).then((res) => {
-		return {
-			ok: res.status == '200',
-			status: res.status,
-			body: res.data
-		}
 	})
-		.catch(err => {
+		.then((res) => {
+			return {
+				ok: res.status == "200",
+				status: res.status,
+				body: res.data,
+			}
+		})
+		.catch((err) => {
 			let res = err.response
 			if (res) {
 				return {
-					ok: res.status == '200',
+					ok: res.status == "200",
 					status: res.status,
-					body: res.data
+					body: res.data,
 				}
-			}
-			else {
+			} else {
 				return {
 					ok: false,
 					status: 404,
-					body: err.message
+					body: err.message,
 				}
 			}
-
 		})
 }

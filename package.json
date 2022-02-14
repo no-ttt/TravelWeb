@@ -49,6 +49,7 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "terser-webpack-plugin": "^2.3.8",
+    "travel_component": "git+https://gitlab.wke.csie.ncnu.edu.tw/tdx/component_lib.git",
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",

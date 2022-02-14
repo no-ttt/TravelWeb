@@ -1,11 +1,8 @@
-import { fork } from 'redux-saga/effects'
+import { takeEvery, takeLatest, all } from "redux-saga/effects"
 
-
-import * as example from './example.js'
-
-
+import * as actions from "../actions"
+import * as tourism from "./tourism"
 
 export default function* () {
-  yield fork(example.getData)
+	yield takeLatest(actions.GET_TOURISM_LIST, tourism.GetTourismList)
 }
-
