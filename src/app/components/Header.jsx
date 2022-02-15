@@ -15,8 +15,10 @@ export default class Header extends Component {
 		return (
 			<div className="logo-bar">
 				<img src={logo} width={120} className="logo" />
-				<SearchBox />
-				{/*<div style={{ display: "flex", justifyContent: "space-around" }} className="navbar-layer">
+				<div className="searchbar-pos">
+					<SearchBox />
+				</div>
+					{/*<div style={{ display: "flex", justifyContent: "space-around" }} className="navbar-layer">
 					{title.map((t) =>
 					<NavBar icon={t.icon} name={t.name} />)}
 					</div>*/}
