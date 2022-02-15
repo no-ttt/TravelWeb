@@ -1,5 +1,6 @@
 import action from "../lib/createAction"
 
+//取得景點列
 export const GET_TOURISM_LIST = "GET_TOURISM_LIST"
 export const GetTourismList = (city = "Taipei") => action(GET_TOURISM_LIST, { city })
 

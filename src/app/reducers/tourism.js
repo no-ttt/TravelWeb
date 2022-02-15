@@ -18,7 +18,7 @@ export function tourismList(state = initState, action) {
 		case SET_TOURISM_LIST:
 			return {
 				...state,
-				fetching: true,
+				fetching: false,
 				items: action.data,
 				error: "",
 			}
