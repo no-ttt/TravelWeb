@@ -18,10 +18,10 @@ export default class Header extends Component {
 				<div className="searchbar-pos">
 					<SearchBox />
 				</div>
-					{/*<div style={{ display: "flex", justifyContent: "space-around" }} className="navbar-layer">
+					<div style={{ display: "flex", justifyContent: "space-around" }} className="navbar-layer">
 					{title.map((t) =>
 					<NavBar icon={t.icon} name={t.name} />)}
-					</div>*/}
+					</div>
 			</div>
 		)
 	}
