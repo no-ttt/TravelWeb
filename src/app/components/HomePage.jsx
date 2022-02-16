@@ -1,12 +1,13 @@
 import React, { Component } from "react"
-import Header from "../components/Header"
+import Header from "../containers/Header"
+import Main from '../containers/Main'
 
 export default class HomePage extends Component {
 	render() {
 		return (
 			<div>
 				<Header />
-				
+				<Main />
 			</div>
 
 		)
