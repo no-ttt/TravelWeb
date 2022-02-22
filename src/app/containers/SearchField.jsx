@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import Header from "../components/Header"
+import SearchField from "../components/SearchField"
 import { GetTourismList } from "../actions/tourism"
 
 const mapStateToProps = (state) => ({
@@ -9,4 +9,4 @@ const mapDispatchToProps = {
 	GetTourismList,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchField)

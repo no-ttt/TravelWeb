@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import logo from "../img/logo.png"
-import { SearchBox } from 'travel_component'
 import { NavBar } from 'travel_component'
 
 const feature = [
@@ -12,24 +11,12 @@ const feature = [
 
 export default class Header extends Component {
 	render() {
-		const { GetTourismList } = this.props
-		let city = ["Taipei", "NewTaipei", "Taoyuan", "Taichung", "Tainan", "Kaohsiung", "Keelung", "Hsinchu", "HsinchuCounty", "MiaoliCounty", "ChanghuaCounty", "NantouCounty", "YunlinCounty", "ChiayiCounty", "Chiayi", "PingtungCounty", "YilanCounty", "HualienCounty",
-			"TaitungCounty", "KinmenCounty", "PenghuCounty", "LienchiangCounty"]
-		let city2 = ["台北", "新北", "桃園", "台中", "台南", "高雄", "基隆", "新竹", "新竹市", "苗栗", "彰化", "南投", "雲林", "嘉義市", "嘉義", "屏東", "宜蘭", "花蓮", "台東", "金門", "澎湖", "連江"]
-		
 		return (
 			<div className="header-layer">
-				<div className="logo-bar">
-					<img src={logo} width={120} className="logo" />
-					<div className="searchbar-pos">
-						<SearchBox width={400} height={35} func={(text) => {
-							if (city2.includes(text))
-								GetTourismList(city[city2.indexOf(text)])
-							}}
-						/>
-					</div>
+				<div className="header-logo-bar">
+					<img src={logo} width={120} className="header-logo" />
 				</div>
-				<div className="navbar-pos">
+				<div className="header-navbar-pos">
 					<NavBar feature={feature} width={300} iconSize={40} fontSize={12} />
 				</div>
 			</div>

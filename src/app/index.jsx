@@ -9,7 +9,7 @@ import { BrowserRouter as Router,Route } from 'react-router-dom'
 import rootSaga from './sagas'
 
 import './styles/main'
-import './styles/header'
+import './styles/homePage'
 
 const store = configureStore()
 store.runSaga(rootSaga)
