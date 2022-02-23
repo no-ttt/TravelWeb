@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import HomePage from "../components/HomePage"
+import Main from "../containers/Main"
 
 export class App extends Component {
 	constructor(props) {
@@ -12,9 +14,12 @@ export class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<HomePage />
-			</div>
+			<BrowserRouter>
+				<Switch>
+					<Route exact path="/" component={HomePage} />
+					<Route exact path="/搜尋結果/:city" component={Main} />
+				</Switch>
+			</BrowserRouter>
 		)
 	}
 }

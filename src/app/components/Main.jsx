@@ -4,15 +4,18 @@ import { TravelCard } from "travel_component"
 
 export default class Main extends Component {
 	componentDidMount() {
-		const { GetTourismList } = this.props
-		GetTourismList()
-	}
 	
+		const { GetTourismList, match } = this.props
+		console.log(match.params.city)
+		GetTourismList(match.params.city)
+	}
+
 	render() {
 		const { tourismList, GetTourismList } = this.props
 		return (
-			<div style={{marginTop: "20px"}}>
-				<div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+			<div style={{ marginTop: "20px" }}>
+			
+				<div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
 					{tourismList.items.map((d) => (
 						<div style={{ margin: "5px" }} key={d.ScenicSpotID}>
 							<TravelCard
