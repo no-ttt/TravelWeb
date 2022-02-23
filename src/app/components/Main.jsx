@@ -14,7 +14,7 @@ export default class Main extends Component {
 		const { tourismList, GetTourismList } = this.props
 		return (
 			<div style={{ marginTop: "20px" }}>
-			
+				<div>{this.props.match.params.city}</div>
 				<div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
 					{tourismList.items.map((d) => (
 						<div style={{ margin: "5px" }} key={d.ScenicSpotID}>
