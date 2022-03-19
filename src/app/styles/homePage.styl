@@ -1,5 +1,4 @@
 /* Header */
-
 .header-layer {
 	display: flex;
 	flex-direction: row;
@@ -25,7 +24,6 @@
 }
 
 /* SearchField */
-
 .searchfield-layout {
 	display: flex;
 	align-items: center;
@@ -34,44 +32,48 @@
 
 .searchfield-mask {
 	position: relative;
-  height: 750px;
+  height: 600px;
 	width: 100%;
+	margin-top: 20px;
 }
 
 .searchfield-img {
 	object-fit: cover;
  	height: 100%;
 	width: 100%;
-	margin-top: 30px;
 }
 
 .searchfield-bar-pos { 
 	position: absolute;
-	margin-top: 20%;
+	margin-top: 18%;
 }
 
+
 /* Content */
+.content-bg {
+	background-image: url(https://www.greentour.com.tw/images/bg-white.jpg);
+}
 
 .content-layout {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 100px;
 }
 
 .content-title {
 	font-weight: bold;
-	font-size: 40px;
-	margin-bottom: 50px;
-	margin-top: 20px;
+	font-size: 30px;
+	margin-top: 80px;
+	margin-bottom: 80px;
+	font-weight: normal;
+	font-family: "Noto Serif","Noto Serif TC",serif;
 }
 
 .content-item {
-	width: 98%;
+	width: 100%;
 	margin-bottom: 50px;
 	display: flex;
 	justify-content: center;
-	border: 1px red solid;
 }
 
 .content-must-like {
@@ -81,7 +83,7 @@
 	width: 100%;
 }
 
-.content-explore {
+.content-explore {  
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -91,17 +93,50 @@
 .content-explore-text-block {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items : center;
 	position: absolute;
 	z-index: 1;
-	margin-top: 40%;
+	margin-top: 38%;
 }
+
+.content-explore-text {
+	font-family: "cwTeXFangSong", serif;
+	color: white; 
+}
+
+.content-explore-link {
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	font-family: "cwTeXFangSong", serif;
+	font-weight: normal;
+}
+
+.content-hot-spot {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin-bottom: 100px;
+}
+
+.content-hot-spot-title {
+	font-family: "Noto Serif","Noto Serif TC",serif;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15px;
+}
+
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+
 
 /* Footer */
 .footer {
   background-color: black;
   height: 200px;
-  margin-top: 100px;   
+  // margin-top: 100px;   
 }
 
 .footer-nav-bar {   

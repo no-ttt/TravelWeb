@@ -17,7 +17,7 @@ export default class Header extends Component {
 					<img src={logo} width={120} className="header-logo" />
 				</div>
 				<div className="header-navbar-pos">
-					<NavBar feature={feature} width={300} featureSize={40} fontSize={12} />
+					<NavBar feature={feature} width={300} featureSize={45} fontSize={12} />
 				</div>
 			</div>
 		)
