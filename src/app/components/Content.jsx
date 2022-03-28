@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { HintImg, PostWall, Post, Carousel } from 'travel_component'
+import { HintImg, PostWall, Post } from 'travel_component'
 
 const post = [
 	{ title: "鹿野高台", src: "https://cdn2.ettoday.net/images/4995/d4995352.jpg" },
@@ -26,6 +26,18 @@ const hotSpot = [
 
 const content = <a href="#" className="content-explore-link">開始探索 {'>'}</a>;
 
+const Item = ({ data, postWidth, postHeight }) => {
+	return (
+		<div className="content-postwall-layout" >
+			<div className="content-postwall-title">{data.title}</div>
+			<div className="content-postwall-des-layout">
+				<div className="content-postwall-des">{data.day} DAYS</div>
+				<div className="content-postwall-des">{data.like} LIKES</div>
+			</div>
+		</div>
+	)
+};
+
 export default class Content extends Component {
 	render() {
 		return (
@@ -40,9 +52,9 @@ export default class Content extends Component {
 									<div className="content-explore-text" style={{ fontSize: 22, marginTop: 35 }}>記錄每段旅程的回憶。</div>
 								</div>
 								<HintImg src="https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_960_720.jpg" 
-									width={790} height={640} mask={true} content={content} textPos={300} />
+									width={890} height={700} mask={true} content={content} textPos={350} />
 							</div>
-							<PostWall post={post} postWidth={324} postHeight={318} 
+							<PostWall isImg={true} data={post} postWidth={504} postHeight={348} 
 								cols={2} gap={2} mask={false} text={false} />
 						</div>
 					</div>
@@ -51,17 +63,18 @@ export default class Content extends Component {
 				<div className="content-layout">
 					<div className="content-title">推薦行程</div>
 					<div className="content-item">
-						<PostWall post={recommend} postWidth={450} postHeight={300} cols={3} gap={15} mask={true} text={true} />
+						<PostWall data={recommend} postWidth={590} postHeight={380} cols={3} gap={10} mask={true} text={true}>
+							<Item />
+						</PostWall>
 					</div>
 				</div>
-
 				<div className="content-layout">
 					<div className="content-title">熱門景點</div>
 					<div className="content-item">
 						<div className="content-hot-spot">
 							{hotSpot.map((t) =>
 								<div className="content-hot-spot-title">	
-									<Post src={t.src} width={280} height={280} fontSize={20} borderStyle="Circle" />
+									<Post src={t.src} width={300} height={300} fontSize={20} borderStyle="Circle" />
 									<div>|</div>
 									<div style={{marginTop: 15}}>{t.title}</div>
 								</div>

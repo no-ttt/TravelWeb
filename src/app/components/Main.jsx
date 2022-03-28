@@ -19,10 +19,9 @@ export default class Main extends Component {
 					{tourismList.items.map((d) => (
 						<div style={{ margin: "5px" }} key={d.ScenicSpotID}>
 							<TravelCard
-								title={d.ScenicSpotName}
-								src={d.Picture.PictureUrl1 || nofound}
-								time={d.Class1}
-								addr={d.City}
+								title={d.name}
+								src={d.pictureUrl || nofound}
+								time={d.cName}
 								width={220}
 								height={220}
 								fontSize={16}

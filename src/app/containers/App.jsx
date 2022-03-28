@@ -17,7 +17,7 @@ export class App extends Component {
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/" component={HomePage} />
-					<Route exact path="/搜尋結果/:city" component={Main} />
+					<Route exact path="/result/:city" component={Main} />
 				</Switch>
 			</BrowserRouter>
 		)
