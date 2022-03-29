@@ -28,7 +28,8 @@
     "react-router-redux": "^4.0.8",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "whl_component": "git+https://gitlab.wke.csie.ncnu.edu.tw/react_component/whl_component.git"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import nofound from "../img/nofound.png"
 import Header from "../components/Header"
 import { Carousel, Post, Tabs, TravelCard } from "travel_component"
+import { Pagination } from 'whl_component'
 
 const data = [
 	{ title: "日月潭", src: "https://images.chinatimes.com/newsphoto/2021-07-17/656/20210717002224.jpg" },
@@ -23,26 +24,26 @@ const Item = ({ data, width, height }) => {
 };
 
 const TabData = [
-	{ title:"景點", type: 1 },
-	{ title:"餐廳", type: 3 },
-	{ title:"住宿", type: 2 },
+	{ title: "景點", type: 1 },
+	{ title: "餐廳", type: 3 },
+	{ title: "住宿", type: 2 },
 ];
 
-const	TabItem = ({data}) => {
+const TabItem = ({ data }) => {
 	return (
-		<div>
-		{data.items.map((d) => (
-			<div style={{ margin: "5px" }} key={d.ScenicSpotID}>
-				<TravelCard
-					title={d.name}
-					src={d.pictureUrl || nofound}
-					time={d.cName}
-					width={220}
-					height={220}
-					fontSize={16}
-				></TravelCard>
-			</div>
-		))}
+		<div className="result-tab-content">
+			{data.items.map((d) => (
+				<div style={{ margin: "20px" }} key={d.ScenicSpotID}>
+					<TravelCard
+						title={d.name}
+						src={d.pictureUrl || nofound}
+						time={d.cName}
+						width={220}
+						height={220}
+						fontSize={16}
+					></TravelCard>
+				</div>
+			))}
 		</div>
 	)
 };
@@ -61,14 +62,23 @@ export default class Main extends Component {
 				<Header />
 				<div className="hr"></div>
 				<div className="result-layout">
-					<div className="result-hot-spot-title">熱門景點</div>
+					<div className="result-title">{match.params.city}熱門景點</div>
 					<Carousel cols={4} gap={20} data={data} width={300} height={250}>
 						<Item />
 					</Carousel>
-				<div className="hr" style={{ marginTop: 60, width: "80%"}}></div>
-				<Tabs data={TabData} getTitle={(d) => d.title} clickFunc={(data) => GetTourismList(match.params.city, data.type)}> 
-					<TabItem data={tourismList} />
-				</Tabs>
+					<div className="hr" style={{ marginTop: 60, width: "80%" }}></div>
+					<Tabs data={TabData} getTitle={(d) => d.title} clickFunc={(data) => GetTourismList(match.params.city, data.type)}>
+						<TabItem data={tourismList} />
+					</Tabs>
+					<div style={{ marginTop: 20, marginBottom: 20 }}>
+						<Pagination
+							total={13}
+							withEllipsis={true}
+							ellipsisRange={2}
+							color={"black"}
+							isFixed={true}
+						/>
+					</div>
 				</div>
 			</div>
 		)
