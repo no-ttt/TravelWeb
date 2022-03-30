@@ -13,13 +13,15 @@ export function tourismList(state = initState, action) {
 				...state,
 				fetching: true,
 				items: [],
+				count: 1,
 				error: "",
 			}
 		case SET_TOURISM_LIST:
 			return {
 				...state,
 				fetching: false,
-				items: action.data,
+				items: action.data.spots,
+				count: Math.ceil(action.data.count.total/20),
 				error: "",
 			}
 

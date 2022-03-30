@@ -33,7 +33,7 @@ const TabItem = ({ data }) => {
 	return (
 		<div className="result-tab-content">
 			{data.items.map((d) => (
-				<div style={{ margin: "20px" }} key={d.ScenicSpotID}>
+				<div style={{ margin: "20px" }} key={d.oid}>
 					<TravelCard
 						title={d.name}
 						src={d.pictureUrl || nofound}
@@ -52,7 +52,14 @@ export default class Main extends Component {
 	componentDidMount() {
 		const { GetTourismList, match } = this.props
 		console.log(match.params.city)
-		GetTourismList(match.params.city, 1)
+		GetTourismList(match.params.city, 1, 1)
+	}
+
+	constructor(props) {
+		super(props)
+		this.state = {
+			current: 1
+		}
 	}
 
 	render() {
@@ -67,16 +74,17 @@ export default class Main extends Component {
 						<Item />
 					</Carousel>
 					<div className="hr" style={{ marginTop: 60, width: "80%" }}></div>
-					<Tabs data={TabData} getTitle={(d) => d.title} clickFunc={(data) => GetTourismList(match.params.city, data.type)}>
+					<Tabs data={TabData} getTitle={(d) => d.title} clickFunc={(data) => {GetTourismList(match.params.city, data.type, 1), this.setState = ({ current: data.type })}}>
 						<TabItem data={tourismList} />
 					</Tabs>
 					<div style={{ marginTop: 20, marginBottom: 20 }}>
 						<Pagination
-							total={13}
+							total={tourismList.count}
 							withEllipsis={true}
 							ellipsisRange={2}
 							color={"black"}
 							isFixed={true}
+							onChange={({ current}) => GetTourismList(match.params.city, this.state.current, current)}
 						/>
 					</div>
 				</div>
