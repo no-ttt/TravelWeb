@@ -10,6 +10,7 @@ import rootSaga from './sagas'
 
 import './styles/main'
 import './styles/homePage'
+import './styles/SpotInfoPage'
 
 const store = configureStore()
 store.runSaga(rootSaga)

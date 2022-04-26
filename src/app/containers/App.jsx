@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import HomePage from "../components/HomePage"
 import Main from "../containers/Main"
+import SpotInfoPage from "../components/SpotInfoPage"
 
 export class App extends Component {
 	constructor(props) {
@@ -18,6 +19,7 @@ export class App extends Component {
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<Route exact path="/result/:city" component={Main} />
+					<Route exact path="/Spot" component={SpotInfoPage} />
 				</Switch>
 			</BrowserRouter>
 		)

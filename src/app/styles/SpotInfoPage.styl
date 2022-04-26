@@ -1,0 +1,105 @@
+.spot-info-hr {
+	border-top 0.5px #c4c4c4 solid
+	margin-top 20px
+	margin-bottom 30px
+}
+
+/** postInfo **/
+.post-info-layout {
+	display flex
+	align-items center
+	flex-direction column
+}
+
+.post-info-header {
+	display flex
+	flex-direction row
+	justify-content space-between
+}
+
+.post-info-spot-name {
+	font-weight bold
+	font-size 35px
+}
+
+.post-info-header-icon {
+	display flex
+	flex-direction row
+	justify-content space-between
+	width 5%
+}
+
+.post-info-spot-des {
+	display flex
+	flex-direction row
+	margin-top 5px
+	margin-bottom 15px
+}
+
+.post-info-spot-des-content {
+	display flex
+	flex-direction row	
+	align-items center
+	margin-right 20px
+}
+
+.post-info-detail {
+	display flex
+	flex-direction row
+	align-items center
+}
+
+.post-info-tb {
+	margin-left 40px
+	dislay flex
+	align-items center
+}
+
+.post-info-tb-title {
+	font-size 20px
+	font-weight bold
+	border-bottom 1px black solid
+	margin-bottom 20px
+	width 20%
+}
+
+.post-info-td {
+	font-size 16px
+	min-width 70px
+}
+
+.post-info-text {
+	font-size 16px
+}
+
+@media screen and (max-width: 1200px) {
+	.post-info-header-icon {
+		width 10%
+	}
+	.post-info-img-rwd {
+		width 100%
+	}
+	.post-info-detail {
+		flex-direction column
+	}
+	.post-info-tb-title {
+		width 20%
+		margin-top 15px
+	}
+	.post-info-tb {
+		margin-left 0px
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.post-info-spot-des-block {
+		flex-direction column
+		align-items flex-start
+	}
+	.post-info-spot-des {
+		margin-bottom 5px	
+	}
+	.post-info-tb-title {
+		width 20%
+	}
+}
