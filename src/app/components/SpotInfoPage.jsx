@@ -14,7 +14,7 @@ const data = [
 
 const Item = () => {
 	return (
-		<table>
+		<table style={{ marginTop: "20px" }}>
 			<tr className="post-info-tr">
 				<td className="post-info-td">開放時間</td>
 				<td className="post-info-text">全天候開放</td>
