@@ -58,7 +58,6 @@
 .post-info-tr {
 	display block
 	margin-bottom 20px
-	width 100%
 }
 
 .post-info-td {
@@ -68,9 +67,23 @@
 
 .post-info-text {
 	font-size 16px
+	width 100%
+	height 100%
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1800px) {
+	.post-info-td {
+		font-size 14px
+	}
+	.post-info-text {
+		font-size 14px
+	}
+	.post-info-tr {
+		margin-bottom 15px
+	}
+}
+
+@media screen and (max-width: 1400px) {
 	.post-info-header-icon {
 		width 10%
 	}
@@ -83,14 +96,10 @@
 	.post-info-tb {
 		margin-left 0px
 	}
-}
-
-@media screen and (max-width: 500px) {
-	.post-info-spot-des-block {
-		flex-direction column
-		align-items flex-start
+	.post-info-td {
+		font-size 16px
 	}
-	.post-info-spot-des {
-		margin-bottom 5px	
+	.post-info-text {
+		font-size 16px
 	}
 }
