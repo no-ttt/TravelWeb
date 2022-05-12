@@ -1,4 +1,4 @@
 {
-    "apiurl":"http://localhost:59089/api",
+    "apiurl":"http://localhost:3000/api",
     "title":"Web"
 }

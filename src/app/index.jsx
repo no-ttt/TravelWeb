@@ -8,9 +8,16 @@ import App from './containers/App'
 import { BrowserRouter as Router,Route } from 'react-router-dom'
 import rootSaga from './sagas'
 
-import './styles/main'
-import './styles/homePage'
-import './styles/SpotInfoPage'
+import './styles/App'
+import './styles/Header'
+import './styles/HomePage/SearchField'
+import './styles/HomePage/Content'
+import './styles/HomePage/Footer'
+import './styles/SearchResult/SearchResult'
+import './styles/SearchResult/HotSpot'
+import './styles/SearchResult/Main'
+import './styles/SpotInfo/SpotInfo'
+import './styles/SpotInfo/SpotDetail'
 
 const store = configureStore()
 store.runSaga(rootSaga)

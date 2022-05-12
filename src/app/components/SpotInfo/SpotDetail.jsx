@@ -1,12 +1,11 @@
 import React, { Component } from "react"
-import Header from "../components/Header"
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import CallIcon from '@material-ui/icons/Call'
 import ShareIcon from '@material-ui/icons/Share'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import { red } from '@material-ui/core/colors'
-import { Tabs } from 'travel_component';
+import { Tabs } from 'travel_component'
 
 const data = [
 	{ title: "詳細資訊" },
@@ -43,7 +42,7 @@ const Item = () => {
 	)
 };
 
-export default class HomePage extends Component {
+export default class SpotDetail extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -54,44 +53,39 @@ export default class HomePage extends Component {
 
 	render() {
 		return (
-			<div>
-				<Header />
-				<div className="spot-info-hr"></div>
-				<div className="post-info-layout">
-					<div style={{ width: "90%" }}>
-						<div className="post-info-header">
-							<div className="post-info-spot-name">紫坪</div>
-							<div className="post-info-header-icon">
-								<button><ShareIcon /></button>
-								<button onClick={() => this.setState({ like: !this.state.like })}>
-									{ !this.state.like
-										? <FavoriteBorderIcon />
-										: <FavoriteIcon style={{ color: red[500] }} />
-									}
-								</button>
-							</div>
+			<div className="post-info-layout">
+				<div style={{ width: "90%" }}>
+					<div className="post-info-header">
+						<div className="post-info-spot-name">紫坪</div>
+						<div className="post-info-header-icon">
+							<button><ShareIcon /></button>
+							<button onClick={() => this.setState({ like: !this.state.like })}>
+								{ !this.state.like
+									? <FavoriteBorderIcon />
+									: <FavoriteIcon style={{ color: red[500] }} />
+								}
+							</button>
 						</div>
-						<div className="post-info-spot-des">
-							<div className="post-info-spot-des-content">
-								<LocationOnIcon />
-								<a href="https://www.google.com.tw/maps/@22.6339397,121.4977144,15z" target="_blank" style={{ color: "black", textDecoration: "none" }}>台東縣951綠島鄉溫泉路256號</a>
-							</div>
-							<div className="post-info-spot-des-content">
-								<CallIcon />
-								<div>886-8-9672026</div>
-							</div>
+					</div>
+					<div className="post-info-spot-des">
+						<div className="post-info-spot-des-content">
+							<LocationOnIcon />
+							<a href="https://www.google.com.tw/maps/@22.6339397,121.4977144,15z" target="_blank" style={{ color: "black", textDecoration: "none" }}>台東縣951綠島鄉溫泉路256號</a>
 						</div>
-						<div className="post-info-detail">
-							<img src="https://www.eastcoast-nsa.gov.tw/image/426/640x480" alt="紫坪" width={"200%"} className="post-info-img-rwd" />
-							<div className="post-info-tb">
-								<Tabs data={data} getTitle={(d) => d.title} clickFunc={(data) => this.setState({ select: data })}> 
-									<Item />
-								</Tabs>
-							</div>
+						<div className="post-info-spot-des-content">
+							<CallIcon />
+							<div>886-8-9672026</div>
+						</div>
+					</div>
+					<div className="post-info-detail">
+						<img src="https://www.eastcoast-nsa.gov.tw/image/426/640x480" alt="紫坪" width={"200%"} className="post-info-img-rwd" />
+						<div className="post-info-tb">
+							<Tabs data={data} getTitle={() => "詳細資訊"} clickFunc={(data) => this.setState({ select: data })} tabPosCenter={false}> 
+								<Item />
+							</Tabs>
 						</div>
 					</div>
 				</div>
-				<div className="spot-info-hr"></div>
 			</div>
 		)
 	}

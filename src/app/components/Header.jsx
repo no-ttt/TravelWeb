@@ -1,23 +1,22 @@
 import React, { Component } from "react"
 import logo from "../img/logo.png"
-import { NavBar } from 'travel_component'
-
-const feature = [
-	{ icon: "dashboard", name: "地圖筆記" },
-	{ icon: "schedule", name: "安排行程" },
-	{ icon: "like", name: "收藏" },
-	{ icon: "home", name: "首頁" },
-];
+import { Avatar, NavBar } from 'travel_component'
 
 export default class Header extends Component {
 	render() {
+		const { feature } = this.props;
 		return (
 			<div className="header-layer">
-				<div className="header-logo-bar">
-					<img src={logo} width={120} className="header-logo" />
-				</div>
-				<div className="header-navbar-pos">
-					<NavBar feature={feature} width={300} featureSize={45} fontSize={12} />
+				<img src={logo} width={120} />
+				<div style={{ display: "flex", flexDirection: "row" }}>
+					<NavBar feature={feature} width={75 * feature.length} featureSize={45} fontSize={12} />
+					<div style={{ marginLeft: "20px" }}>
+						<Avatar
+							alt="蠟筆小新"
+							src="https://p3-tt.byteimg.com/origin/pgc-image/def93625146b46f8980a39f6e0057b2f?from=pc"
+							width={45}
+						/>
+					</div>
 				</div>
 			</div>
 		)

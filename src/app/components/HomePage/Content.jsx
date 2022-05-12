@@ -1,11 +1,11 @@
 import React, { Component } from "react"
-import { HintImg, PostWall, Post } from 'travel_component'
+import { Card, PostWall, Post } from 'travel_component'
 
 const post = [
-	{ title: "鹿野高台", src: "https://cdn2.ettoday.net/images/4995/d4995352.jpg" },
-	{ title: "101 大樓", src: "https://yuann.tw/wp-content/uploads/2006/06/101_resize.jpg" },
-	{ title: "屏東海生館", src: "https://www.nmmba.gov.tw/images/pic03.jpg" },
-	{ title: "阿里山小火車", src: "https://blog.tripbaa.com/wp-content/uploads/2018/07/P1011044.jpg" },
+	{ title: "鹿野高台", src: "https://cdn2.ettoday.net/images/4995/d4995352.jpg", des: "test1" },
+	{ title: "101 大樓", src: "https://yuann.tw/wp-content/uploads/2006/06/101_resize.jpg", des: "test2" },
+	{ title: "屏東海生館", src: "https://www.nmmba.gov.tw/images/pic03.jpg", des: "test3" },
+	{ title: "阿里山小火車", src: "https://blog.tripbaa.com/wp-content/uploads/2018/07/P1011044.jpg", des: "test4" },
 ];
 
 const recommend = [
@@ -23,8 +23,6 @@ const hotSpot = [
 	{title: "南部", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA8QsVZltiBdiWvaPUgvIhhyG_28_9Du6ISg&usqp=CAU"},
 	{title: "東部", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePq6uIyJ9bYLg_tsMnCnhkMq0IAKwuuzNqA&usqp=CAU"},
 ];
-
-const content = <a href="#" className="content-explore-link">開始探索 {'>'}</a>;
 
 const Item = ({ data, postWidth, postHeight }) => {
 	return (
@@ -44,37 +42,29 @@ export default class Content extends Component {
 			<div className="content-bg">
 				<div className="content-layout">
 					<div className="content-title">你可能會喜歡</div>
-					<div className="content-item">
-						<div className="content-must-like">
-							<div className="content-explore">
-								<div className="content-explore-text-block">
-									<div className="content-explore-text" style={{ fontSize: 40 }}>遊你開始，</div>
-									<div className="content-explore-text" style={{ fontSize: 22, marginTop: 35 }}>記錄每段旅程的回憶。</div>
-								</div>
-								<HintImg src="https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_960_720.jpg" 
-									width={890} height={700} mask={true} content={content} textPos={350} />
+					<div className="content-must-like">
+						{post.map((p, i) =>
+							<div key={i}>
+								<Card src={p.src} custom={true} height={300} picHeight={250} width={280} flip={true} flipContent={p.des}>
+									<div style={{ textAlign: "center", fontWeight: "bold", width: "100%", marginTop: 10 }}>
+										{p.title}
+									</div>
+								</Card>
 							</div>
-							<PostWall isImg={true} data={post} postWidth={504} postHeight={348} 
-								cols={2} gap={2} mask={false} text={false} />
-						</div>
+						)}
 					</div>
-				</div>
-
-				<div className="content-layout">
 					<div className="content-title">推薦行程</div>
 					<div className="content-item">
-						<PostWall data={recommend} postWidth={590} postHeight={380} cols={3} gap={10} mask={true} text={true}>
+						<PostWall data={recommend} postWidth="100%" postHeight={300} cols={3} gap={10} mask={true} text={true}>
 							<Item />
 						</PostWall>
 					</div>
-				</div>
-				<div className="content-layout">
 					<div className="content-title">熱門景點</div>
 					<div className="content-item">
 						<div className="content-hot-spot">
-							{hotSpot.map((t) =>
-								<div className="content-hot-spot-title">	
-									<Post src={t.src} width={300} height={300} fontSize={20} borderStyle="Circle" />
+							{hotSpot.map((t, i) =>
+								<div key={i} className="content-hot-spot-title">	
+									<Post src={t.src} width={280} height={280} fontSize={20} borderStyle="Circle" />
 									<div>|</div>
 									<div style={{marginTop: 15}}>{t.title}</div>
 								</div>
