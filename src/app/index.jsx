@@ -18,6 +18,7 @@ import './styles/SearchResult/HotSpot'
 import './styles/SearchResult/Main'
 import './styles/SpotInfo/SpotInfo'
 import './styles/SpotInfo/SpotDetail'
+import './styles/SpotInfo/SpotComment'
 
 const store = configureStore()
 store.runSaga(rootSaga)
