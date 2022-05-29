@@ -19,6 +19,8 @@ import './styles/SearchResult/Main'
 import './styles/SpotInfo/SpotInfo'
 import './styles/SpotInfo/SpotDetail'
 import './styles/SpotInfo/SpotComment'
+import './styles/SpotInfo/SpotNearby'
+import './styles/SpotInfo/SpotRecommend'
 
 const store = configureStore()
 store.runSaga(rootSaga)

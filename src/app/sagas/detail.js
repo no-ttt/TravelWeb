@@ -10,9 +10,9 @@ import api from "../lib/api"
 
 */
 
-export function* GetTourismList(action) {
+export function* GetDetailList(action) {
 	let data = yield call(api, {
-	"cmd": `Spot?type=${action.opt}&city=${action.city}&page=${action.currentPage}&fetch=20`,
+		"cmd": `Spot/${action.id}`,
 	})
-	yield put(actions.SetTourismList(data.body))
+	yield put(actions.SetDetailList(data.body))
 }

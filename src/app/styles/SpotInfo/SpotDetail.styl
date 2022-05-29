@@ -11,19 +11,19 @@
 
 .post-info-spot-name {
 	font-weight bold
-	font-size 35px
+	font-size 30px
 }
 
 .post-info-header-icon {
 	display flex
 	justify-content space-between
-	width 5%
+	width 80px
 }
 
 .post-info-spot-des {
 	display flex
 	flex-direction row
-	margin-top 5px
+	margin-top 8px
 	margin-bottom 15px
 }
 
@@ -36,14 +36,18 @@
 
 .post-info-detail {
 	display flex
-	flex-direction row
-	align-items center
+	align-items flex-start
+}
+
+.post-info-detail-pic {
+	width 650px
+	height 450px
+	object-fit cover
 }
 
 .post-info-tb {
+	width 600px
 	margin-left 40px
-	display flex 
-	align-items center
 }
 
 .post-info-tr {
@@ -60,37 +64,4 @@
 	font-size 16px
 	width 100%
 	height 100%
-}
-
-@media screen and (max-width: 1800px) {
-	.post-info-td {
-		font-size 14px
-	}
-	.post-info-text {
-		font-size 14px
-	}
-	.post-info-tr {
-		margin-bottom 15px
-	}
-}
-
-@media screen and (max-width: 1400px) {
-	.post-info-header-icon {
-		width 10%
-	}
-	.post-info-img-rwd {
-		width 100%
-	}
-	.post-info-detail {
-		flex-direction column
-	}
-	.post-info-tb {
-		margin-left 0px
-	}
-	.post-info-td {
-		font-size 16px
-	}
-	.post-info-text {
-		font-size 16px
-	}
 }

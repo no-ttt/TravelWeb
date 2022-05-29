@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import nofound from "../../img/nofound.png"
 import { Tabs, Card } from "travel_component"
 // import { Pagination } from 'whl_component'
@@ -15,9 +15,12 @@ const TabItem = ({ data }) => {
 		<div className="main-tab-content">
 			{data.items.map((d) => (
 				<div key={d.oid} style={{ margin: "20px" }}>
-					<Link to={{
-						pathname: '/Spot/' + d.oid,
-					}} className="main-detail-link">
+					<Link 
+						to={{ 
+							pathname: '/Spot/' + d.oid,
+						}} 
+						className="main-detail-link"
+					>
 						<Card
 							src={d.pictureUrl || nofound}
 							width={250}
@@ -38,11 +41,6 @@ const TabItem = ({ data }) => {
 };
 
 export default class Main extends Component {
-	componentDidMount() {
-		const { GetTourismList } = this.props
-		GetTourismList(this.props.city, 1, 1)
-	}
-
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -50,6 +48,11 @@ export default class Main extends Component {
 		}
 	}
 
+	componentDidMount() {
+		const { GetTourismList } = this.props
+		GetTourismList(this.props.city, 1, 1)
+	}
+	
 	render() {
 		const { tourismList, GetTourismList, city } = this.props
 		return (
@@ -58,16 +61,16 @@ export default class Main extends Component {
 					<Tabs data={TabData} getTitle={(d) => d.title} clickFunc={(data) => { GetTourismList(city, data.type, 1), this.setState = ({ current: data.type }) }}>
 						<TabItem data={tourismList} />
 					</Tabs>
-					{/* <div style={{ marginTop: 20, marginBottom: 20 }}>
-						<Pagination
+					<div style={{ marginTop: 20, marginBottom: 20 }}>
+						{/* <Pagination
 							total={tourismList.count}
 							withEllipsis={true}
 							ellipsisRange={2}
 							color="black"
 							isFixed={true}
 							onChange={({ current }) => GetTourismList(city, this.state.current, current)}
-						/>
-					</div> */}
+						/> */}
+					</div>
 				</div>
 			</div>
 		)
