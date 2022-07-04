@@ -5,7 +5,7 @@ import Main from '../../containers/SearchResult/Main'
 
 const feature = [
 	{ icon: "dashboard", name: "地圖筆記" },
-	{ icon: "schedule", name: "安排行程" },
+	{ icon: "schedule", name: "安排行程", link: "/ArrangeTravel" },
 ];
 
 export default class SearchResult extends Component {

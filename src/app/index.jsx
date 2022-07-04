@@ -21,6 +21,9 @@ import './styles/SpotInfo/SpotDetail'
 import './styles/SpotInfo/SpotComment'
 import './styles/SpotInfo/SpotNearby'
 import './styles/SpotInfo/SpotRecommend'
+import './styles/ArrangeTravel/ArrangeTravel'
+import './styles/ArrangeTravel/CreateTravel'
+import './styles/ArrangeSchedule/ArrangeSchedule'
 
 const store = configureStore()
 store.runSaga(rootSaga)
