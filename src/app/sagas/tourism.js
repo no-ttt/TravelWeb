@@ -10,9 +10,23 @@ import api from "../lib/api"
 
 */
 
+export function* GetAutoCityList(action) {
+	let data = yield call(api, {
+	    "cmd": `Spot/AutoComplete?city=${action.city}`,
+	})
+	yield put(actions.SetAutoCityList(data.body))
+}
+
 export function* GetTourismList(action) {
 	let data = yield call(api, {
-		thirdpartyurl: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${action.city}`,
+	    "cmd": `Spot?city=${action.city}&type=${action.opt}&start=${action.start}&counts=32`,
 	})
 	yield put(actions.SetTourismList(data.body))
+}
+
+export function* GetDetailList(action) {
+	let data = yield call(api, {
+	    "cmd": `Spot/Detail?oid=${action.oid}`,
+	})
+	yield put(actions.SetDetailList(data.body))
 }
