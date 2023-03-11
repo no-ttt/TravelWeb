@@ -43,7 +43,7 @@ export default class Comment extends Component {
   }
 
 	render() {
-    const { userName, avatarURL, content, rating, since, img, deleteSpotComment } = this.props
+    const { userName, avatarURL, content, rating, since, img, deleteSpotComment, bDel } = this.props
     const { clickNum, click, anchorEl } = this.state
     return (
 			<div>
@@ -53,17 +53,29 @@ export default class Comment extends Component {
             <div className="comment-user-name">{userName}</div>
           </div>
           <button className="comment-button" onClick={this.handleClick}><MoreVertIcon /></button>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={this.handleClose}
-            disableScrollLock={true}
-          >
-            <MenuItem dense onClick={deleteSpotComment}>
-              <ListItemText>刪除評論</ListItemText>
-            </MenuItem>
-          </Menu>
-          
+          {
+            bDel ?
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={this.handleClose}
+              disableScrollLock={true}
+            >
+              <MenuItem dense onClick={deleteSpotComment}>
+                <ListItemText>刪除評論</ListItemText>
+              </MenuItem>
+            </Menu>
+            : <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={this.handleClose}
+                disableScrollLock={true}
+              >
+                <MenuItem dense onClick={deleteSpotComment}>
+                  <ListItemText>檢舉評論</ListItemText>
+                </MenuItem>
+              </Menu>
+          }
         </div>
         <div className="comment-content">
           <div style={{ display: "flex", flexDirection: "row" }}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Progress, Popup } from 'travel_component'
 import AddComment from './AddComment'
 import Comment from './Comment'
+import { apiurl } from "Config"
 
 const rating = {
 	rating: 4,
@@ -96,7 +97,7 @@ export default class SpotComment extends Component {
                 : spotCommentList.items.map((c, i) => (
                     <div key={i}>
                       <div className="comment-divider" />
-                      <Comment userName={loginList.items.cName} avatarURL={loginList.avatar} content={c.cDes} rating={c.star5} since={c.create_date} like={c.thumbUp} clickLike={c.like} img={c.img} deleteSpotComment={() => this.deleteSpotComment(c.cid)} likeComment={() => this.likeComment(c.cid)} />
+                      <Comment userName={c.cName} avatarURL={c.changeAvatar === true ? apiurl+'/File/download/Avatar/'+c.avatarPath : c.avatarURL} content={c.cDes} rating={c.star5} since={c.create_date} like={c.thumbUp} clickLike={c.like} img={c.img} deleteSpotComment={() => this.deleteSpotComment(c.cid)} likeComment={() => this.likeComment(c.cid)} bDel={c.bDel} />
                     </div>
                   ))
               }
