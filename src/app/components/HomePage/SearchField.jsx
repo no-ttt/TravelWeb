@@ -10,7 +10,7 @@ export default class SearchField extends Component {
         <img src={searchfield_bg} alt="search_bg" className="searchfield-bd" />
         <div className="searchfield-bar-pos">
           <div className="searchfield-slogan">Get Ready for TRAVEL</div>
-          <div style={{ height: "40vh" }}>
+          <div style={{ height: "30vh" }}>
             <SearchBox fontSize={18} suggestion={autoCityList.items} option={(d) => d.result} link={(d) => "/spot/" + d.result} width={1000} height={45}
               hintText="要去哪？" searchFunc={(text) => GetAutoCityList(text)}
             />

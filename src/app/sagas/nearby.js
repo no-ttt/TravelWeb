@@ -12,7 +12,14 @@ import api from "../lib/api"
 
 export function* GetNearbySpotList(action) {
 	let data = yield call(api, {
-	    "cmd": `Nearby?lat=${action.lat}&lon=${action.lon}&distance=${action.distance}&type=${action.opt}`,
+	    "cmd": `LBSE/Nearby?lat=${action.lat}&lon=${action.lon}&distance=${action.distance}&type=${action.opt}`,
 	})
 	yield put(actions.SetNearbySpotList(data.body))
+}
+
+export function* GetPathNearbySpotList(action) {
+	let data = yield call(api, {
+	    "cmd": `LBSE/Test?startLat=${action.startLat}&startLon=${action.startLon}&endLat=${action.endLat}&endLon=${action.endLon}&distance=${action.distance}`,
+	})
+	yield put(actions.SetPathNearbySpotList(data.body))
 }

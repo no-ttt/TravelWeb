@@ -9,7 +9,6 @@ import BedIcon from '@mui/icons-material/Bed'
 export default class HotSpotBlock extends Component {
 	render() {
 		const { areaList, subtitle } = this.props
-
 		return (
 			<div className="activity-about-content-block">
 				<div className="activity-about-subtitle-layout">

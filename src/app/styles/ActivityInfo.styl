@@ -20,7 +20,7 @@
 	display flex
 	justify-content flex-start
 	width 100%
-	margin-bottom 20px
+	margin-bottom 30px
 }
 
 .activity-info-detail-other-info {
@@ -76,6 +76,7 @@
 .activity-pin-row {
 	display flex
 	flex-direction row
+	margin-top 50px
 }
 
 .activity-pin {
@@ -104,4 +105,15 @@
 .activity-info-intro-des {
 	font-size 18px
 	line-height 40px
+}
+
+@media only screen and (max-width: 1700px) {
+	.activity-info-detail-img {
+		width 550px
+		height 400px
+		object-fit cover
+	}
+	.activity-info-intro {
+		margin-top -40px
+	}
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Tabs, Popup } from 'travel_component'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 import IosShareIcon from '@mui/icons-material/IosShare'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
@@ -8,7 +9,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 const SpotTab = [{ title: "詳細資訊", opt: 1 }, { title: "關於交通", opt: 2 }]
 const clickBtn = <div className="spot-info-btn">More</div>;
 
-const Item = ({ data, type, opt }) => {
+let Item = ({ data, type, opt }) => {
 	if (type === 5) {
 		if (opt === 1) {
 			return (
@@ -19,7 +20,7 @@ const Item = ({ data, type, opt }) => {
 							<td className="spot-info-td">景點介紹</td>
 							<td className="spot-info-text">
 								<div className="spot-info-content">{data.cDes}</div>
-								<Popup clickBtn={clickBtn} width={750} height={500} title="景點簡介">
+								<Popup clickBtn={clickBtn} width={750} height={420} title="景點簡介">
 									<div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
 										<div style={{ lineHeight: "24px" }}>{data.cDes}</div>
 									</div>
@@ -52,24 +53,27 @@ const Item = ({ data, type, opt }) => {
 			)
 		}
 		else if (opt === 2) {
-			return (
-				<table className="spot-info-tb-items">
-					{
-						data.travelInfo != null &&
-						<tr className="spot-info-tr">
-							<td className="spot-info-td">交通方式</td>
-							<td className="spot-info-text">{data.travelInfo}</td>
-						</tr>
-					}
-					{
-						data.parkingInfo != null &&
-						<tr className="spot-info-tr">
-							<td className="spot-info-td">停車資訊</td>
-							<td className="spot-info-text">{data.parkingInfo}</td>
-						</tr>
-					}
-				</table>
-			)
+			if (data.travelInfo == null && data.parkingInfo == null) return (<div>暫無相關資料</div>)
+			else {
+				return (
+					<table className="spot-info-tb-items">
+						{
+							data.travelInfo != null &&
+							<tr className="spot-info-tr">
+								<td className="spot-info-td">交通方式</td>
+								<td className="spot-info-text">{data.travelInfo}</td>
+							</tr>
+						}
+						{
+							data.parkingInfo != null &&
+							<tr className="spot-info-tr">
+								<td className="spot-info-td">停車資訊</td>
+								<td className="spot-info-text">{data.parkingInfo}</td>
+							</tr>
+						}
+					</table>
+				)
+			}
 		}
 	}
 	else if (type === 6) {
@@ -108,17 +112,20 @@ const Item = ({ data, type, opt }) => {
 			)
 		}
 		else if (opt === 2) {
-			return (
-				<table className="spot-info-tb-items">
-					{
-						data.parkingInfo != null &&
-						<tr className="spot-info-tr">
-							<td className="spot-info-td">停車資訊</td>
-							<td className="spot-info-text">{data.parkingInfo}</td>
-						</tr>
-					}
-				</table>
-			)
+			if (data.parkingInfo == null) return (<div>暫無相關資料</div>)
+			else {
+				return (
+					<table className="spot-info-tb-items">
+						{
+							data.parkingInfo != null &&
+							<tr className="spot-info-tr">
+								<td className="spot-info-td">停車資訊</td>
+								<td className="spot-info-text">{data.parkingInfo}</td>
+							</tr>
+						}
+					</table>
+				)
+			}
 		}
 	}
 	else if (type === 7) {
@@ -165,17 +172,20 @@ const Item = ({ data, type, opt }) => {
 
 		}
 		else if (opt === 2) {
-			return (
-				<table className="spot-info-tb-items">
-					{
-						data.parkingInfo != null &&
-						<tr className="spot-info-tr">
-							<td className="spot-info-td">停車資訊</td>
-							<td className="spot-info-text">{data.parkingInfo}</td>
-						</tr>
-					}
-				</table>
-			)
+			if (data.parkingInfo == null) return (<div>暫無相關資料</div>)
+			else {
+				return (
+					<table className="spot-info-tb-items">
+						{
+							data.parkingInfo != null &&
+							<tr className="spot-info-tr">
+								<td className="spot-info-td">停車資訊</td>
+								<td className="spot-info-text">{data.parkingInfo}</td>
+							</tr>
+						}
+					</table>
+				)
+			}
 		}
 	}
 	else return (<div>no found</div>)
@@ -185,20 +195,47 @@ export default class SpotDetail extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			select: 1
+			select: 1,
 		}
 	}
+
+	addCollection = () => {
+		const { PostCollectionList, oid } = this.props
+		PostCollectionList(oid)
+		this.setState({
+			keep: true
+		})
+	}
+
+	deleteCollection = () => {
+		const { DeleteCollectionList, oid } = this.props
+		DeleteCollectionList(oid)
+		this.setState({
+			keep: false
+		})
+	}
+
 	render() {
-		const { detailList } = this.props
-		const { select } = this.state
+		const { detailList, collectionResult } = this.props
+		const { select, keep } = this.state
 
 		return (
 			<div className="spot-detail-layout">
 				<div className="spot-detail-header">
 					<div className="spot-detail-title">{detailList.cName}</div>
 					<div className="spot-detail-icon">
-						<FavoriteBorderIcon />
-						<IosShareIcon />
+						{
+							(keep === undefined ? collectionResult : keep) ?
+							<button className="spot-detail-icon-hover"  onClick={this.deleteCollection}>
+								<FavoriteIcon style={{ color: "red" }} fontSize="large" />
+							</button>
+							: <button className="spot-detail-icon-hover" onClick={this.addCollection}>
+								<FavoriteBorderIcon fontSize="large" />
+							</button>
+						}
+						<button className="spot-detail-icon-hover">
+							<IosShareIcon fontSize="large" />
+						</button>
 					</div>
 				</div>
 				<div className="spot-detail-info-layout">

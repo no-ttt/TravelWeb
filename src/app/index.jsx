@@ -18,6 +18,7 @@ import './styles/ActivityArea'
 import './styles/ActivityInfo'
 import './styles/User'
 import './styles/Collection'
+import './styles/SignIn'
 
 const store = configureStore()
 store.runSaga(rootSaga)

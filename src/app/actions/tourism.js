@@ -22,3 +22,24 @@ export const GetDetailList = (oid) => action(GET_DETAIL_LIST, { oid })
 
 export const SET_DETAIL_LIST = "SET_DETAIL_LIST"
 export const SetDetailList = (data) => action(SET_DETAIL_LIST, { data })
+
+// 所有收藏景點
+export const GET_COLLECTION_LIST = "GET_COLLECTION_LIST"
+export const GetCollectionList = () => action(GET_COLLECTION_LIST, { })
+
+export const SET_COLLECTION_LIST = "SET_COLLECTION_LIST"
+export const SetCollectionList = (data) => action(SET_COLLECTION_LIST, { data })
+
+// 景點加入收藏
+export const POST_ADD_COLLECTION_LIST = "POST_ADD_COLLECTION_LIST"
+export const PostCollectionList = (oid) => action(POST_ADD_COLLECTION_LIST, { oid })
+
+export const SET_ADD_COLLECTION_LIST = "SET_ADD_COLLECTION_LIST"
+export const SetPostCollectionList = (data) => action(SET_ADD_COLLECTION_LIST, { data })
+
+// 景點取消收藏
+export const DELETE_COLLECTION_LIST = "DELETE_COLLECTION_LIST"
+export const DeleteCollectionList = (oid) => action(DELETE_COLLECTION_LIST, { oid })
+
+export const SET_DELETE_COLLECTION_LIST = "SET_DELETE_COLLECTION_LIST"
+export const SetDeleteCollectionList = (data) => action(SET_DELETE_COLLECTION_LIST, { data })

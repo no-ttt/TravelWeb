@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Header from '../Header'
+import Header from '../../containers/Header'
 import HotSpot from '../../containers/SearchResult/HotSpot'
 import Main from '../../containers/SearchResult/Main'
 

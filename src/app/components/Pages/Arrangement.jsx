@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Header from '../Header'
+import Header from '../../containers/Header'
 import ArrangeField from '../Arrangement/ArrangeField'
 import Content from '../Arrangement/Content'
 

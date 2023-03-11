@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Header from '../Header'
+import Header from '../../containers/Header'
 import SearchField from '../../containers/HomePage/SearchField'
 import Content from '../HomePage/Content'
 import Footer from '../HomePage//Footer'

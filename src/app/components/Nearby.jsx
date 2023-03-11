@@ -59,7 +59,7 @@ export default class Nearby extends Component {
     return (
       <div className="nearby-layout">
         <div style={{ display: "flex", flexDirection: "row", width: "75%", alignItems: "center" }}>
-          <div style={{ width: "60%" }}>
+          <div className="nearby-map-block">
             <div className="nearby-title">附近景點</div>
             <LoadScript
               googleMapsApiKey={GOOGLE_MAPS_API_KEY}
@@ -160,7 +160,7 @@ export default class Nearby extends Component {
               <div className="nearby-subtitle-items">在 3 公里內 ...</div>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", width: "90%" }}>
-              <div style={{ height: "52vh" }}>
+              <div>
                 <div className="nearby-subtitle-items">景點</div>
                 <div>
                 {

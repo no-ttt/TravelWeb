@@ -9,6 +9,7 @@
 .spot-detail-header {
 	display flex
 	justify-content space-between
+	align-items center
 	width 75%
 	margin-bottom 20px
 }
@@ -22,7 +23,21 @@
 	display flex
 	justify-content space-between
 	align-items center
-	width 5%
+	width 120px
+	margin-right 40px
+}
+
+.spot-detail-icon-hover {
+	width 55px
+	height 55px
+	display flex
+	justify-content center
+	align-items center
+}
+
+.spot-detail-icon-hover:hover {
+	border-radius 100%
+	background-color #e9e9e9
 }
 
 .spot-detail-info-layout {
@@ -144,12 +159,19 @@
 .review-write-block {
 	border 1px #c4c4c4 solid
 	color #b5b5b5
-	font-size 14px
+	font-size 15px
 	border-radius 5px
 	padding 10px
 	width 200px
 	height 50px
 	margin-top 15px
+	margin-left -10px
+	display flex
+	justify-content flex-start
+}
+
+.review-write-block:hover {
+	background-color #f4f4f4
 }
 
 .nearby-layout {
@@ -158,6 +180,10 @@
 	flex-direction column
 	justify-content center
 	align-items center
+}
+
+.nearby-map-block {
+	width 60%
 }
 
 .nearby-title {
@@ -272,4 +298,199 @@
 	font-size 28px
 	font-weight bold
 	margin-bottom 20px
+}
+
+@media only screen and (max-width: 1700px) {
+  .spot-detail-img {
+		width 100%
+		height 450px
+		object-fit cover
+	}
+	.spot-info-tb {
+		width 100%
+		height 420px
+		margin 20px  0 0 10px
+	}
+	.spot-detail-other-info {
+		display flex
+		flex-direction column
+	}
+	.nearby-map-block {
+		width 45%
+	}
+	.nearby-subtitle-block {
+		width 55%
+		margin-top 5px
+		height 60vh
+	}
+	.nearby-map-filter {
+		padding 5px
+		width 80px
+	}
+}
+
+.add-comment-user-info {
+	display flex
+	flex-direction row
+	align-items center
+	margin-bottom 5px
+}
+
+.add-comment-user {
+	font-size 18px
+	font-weight bold
+	margin-left 10px
+}
+
+.add-comment-section {
+	margin-left 10px
+}
+
+.add-comment-textarea {
+	margin-top 10px
+	border 1px #C4C4C4 solid
+	border-radius 5px
+	outline none
+	padding 10px 10px
+	width 350px
+}
+
+textarea::placeholder {
+	font-size 16px
+}
+
+textarea {
+	font-size 18px
+}
+
+.add-comment-upload-img-frame {
+	border 1px #C4C4C4 dashed
+	border-radius 5px
+	width 80px
+	height 80px
+	display flex
+	justify-content center
+	align-items center
+	cursor pointer 
+	margin-right 5px
+}
+
+.add-comment-upload-img-frame:hover {
+	border 1px gray dashed
+}
+
+.add-comment-btn {
+	background #e5e5e5
+	width 350px
+	height 40px
+	margin-left 10px
+	border-radius 5px
+	outline none
+	font-size 18px
+}
+
+.add-comment-btn:hover {
+	background #FAECBB
+}
+
+.add-comment-img-section {
+	display flex 
+	flex-direction row
+	width 75%
+	height 100px
+	overflow-y hidden
+}
+
+.add-comment-upload-img {
+	border-radius 5px
+	width 80px
+	height 80px
+	object-fit cover
+	margin-right 5px
+}
+
+.comment-divider {
+  border-top 0.5px #c4c4c4 solid
+  margin 25px 0
+  width 100%
+}
+
+.spot-comment-btn {
+	border 1px black solid
+	border-radius 5px
+	padding 5px 10px
+	margin-right 10px
+	font-size 16px
+}
+
+.spot-comment-btn-clicked {
+	border-radius 5px
+	padding 5px 10px
+	background-color black
+	color white
+	font-size 16px
+	margin-right 10px
+}
+
+.comment-header {
+	width 100%
+	display flex
+	justify-content space-between 
+	align-items center 
+}
+
+.comment-user {
+	display flex
+	flex-direction row
+	align-items center
+}
+
+.comment-user-name {
+	font-size 18px
+	font-weight bold
+	margin-left 10px
+}
+
+.comment-button {
+	width 40px
+	height 40px
+	display flex
+	justify-content center
+	align-items center
+}
+
+.comment-button:hover {
+	border-radius 100%
+	background-color #e9e9e9
+}
+
+.comment-content {
+	margin-left 10px
+	margin-top 5px
+	font-size 16px
+}
+
+.comment-img-section {
+	margin-top 15px
+	width 100%
+	overflow-x auto
+	display flex
+	flex-direction row
+}
+
+.comment-photo {
+	width 120px
+	height 120px
+	margin-right 10px
+	object-fit cover
+}
+
+.comment-content-txt {
+	margin-top 5px
+}
+
+.comment-thumbup {
+	display flex
+	align-items center
+	margin-top 15px
 }
